@@ -7,6 +7,9 @@
     <ClInclude Include="pythagoras_tree.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="l_system_render.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

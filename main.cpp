@@ -2,8 +2,10 @@
 #include <vector>
 
 #include <SDL.h>
+
 #include "base.hpp"
 #include "pythagoras_tree.hpp"
+#include "l_system_render.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -120,7 +122,7 @@ bool on_init()
 		SDL_WINDOWPOS_UNDEFINED,
 		SCREEN_WIDTH,
 		SCREEN_HEIGHT,
-		SDL_WINDOW_FULLSCREEN);
+		SDL_WINDOW_SHOWN);
 	
 	if(p_window == nullptr)
 		return false;
@@ -131,11 +133,21 @@ bool on_init()
 		SDL_RENDERER_ACCELERATED 
 		| SDL_RENDERER_TARGETTEXTURE);
 
-	current_fractal_ = new PythagorasTree(p_renderer,
+	/*current_fractal_ = new PythagorasTree(p_renderer,
 		SCREEN_WIDTH,
 		SCREEN_HEIGHT,
 		REAL_WIDTH,
-		REAL_HEIGHT, 10);
+		REAL_HEIGHT, 10);*/
+
+	current_fractal_ = new LSystemRender(p_renderer,
+		SCREEN_WIDTH,
+		SCREEN_HEIGHT,
+		REAL_WIDTH,
+		REAL_HEIGHT,
+		10,
+		"F",
+		{{'F', "F-F+F"}},
+		120);
 	
 	fractals_.push_back(current_fractal_);
 	current_fractal_->reset();
@@ -171,7 +183,7 @@ int main(int argc, char* argv[])
 		if(oldTicks + 1000 < tick)
 		{
 			oldTicks = tick;
-			std::cout << "FPS: " << frameCount << std::endl;
+			//std::cout << "FPS: " << frameCount << std::endl;
 			frameCount = 0;
 		}
 	}

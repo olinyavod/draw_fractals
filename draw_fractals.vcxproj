@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="base.hpp" />
+    <ClInclude Include="l_system_render.hpp" />
     <ClInclude Include="pythagoras_tree.hpp" />
   </ItemGroup>
   <ItemGroup>
