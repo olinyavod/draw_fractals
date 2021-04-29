@@ -3,9 +3,9 @@
 
 #include <SDL.h>
 
-#include "base.hpp"
-#include "pythagoras_tree.hpp"
-#include "l_system_render.hpp"
+#include "include/base.hpp"
+#include "include/pythagoras_tree.hpp"
+#include "include/l_system_render.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
